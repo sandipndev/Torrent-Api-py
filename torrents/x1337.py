@@ -121,7 +121,7 @@ class x1337:
             return await self.parser_result(start_time, url, session, query=query, page=page)
 
     async def parser_result(self, start_time, url, session, page, query=None):
-        htmls = await Scraper().get_all_results(session, url)
+        htmls = await Scraper().get_all_results(session, url, True)
         result, urls = self._parser(htmls)
         if result != None:
             results = await self._get_torrent(result, session, urls)
@@ -136,7 +136,7 @@ class x1337:
                     return results
                 page = page + 1
                 url = self.BASE_URL + "/search/{}/{}/".format(query, page)
-                htmls = await Scraper().get_all_results(session, url)
+                htmls = await Scraper().get_all_results(session, url, True)
                 result, urls = self._parser(htmls)
                 if result != None:
                     res = await self._get_torrent(result, session, urls)
