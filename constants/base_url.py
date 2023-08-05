@@ -1,4 +1,4 @@
-X1337 = "https://1337x.to"
+X1337 = "https://1337x.unblockit.rsvp"
 TGX = "https://torrentgalaxy.to"
 TORLOCK = "https://www.torlock.com"
 PIRATEBAY = "https://thepiratebay10.org"

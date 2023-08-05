@@ -1,6 +1,23 @@
 version: '3.9'
+
+networks:
+  tor_network:
+    driver: bridge
+
 services:
+  tor:
+    image: dperson/torproxy
+    networks:
+      - tor_network
+    ports:
+      - "8118:8118"
+      - "9050:9050"
+
   api-py:
     build: .
+    networks:
+      - tor_network
+    environment:
+      - TOR_HTTP_PROXY=http://tor:9050
     ports:
       - "8009:8009"
